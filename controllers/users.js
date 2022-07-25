@@ -69,15 +69,28 @@ const userPut = async(req, res = response) => {
 
 
 
-const userDel = (req, res = response) => {
+const userDel = async (req, res = response) => {
+
+    const { id } = req.params;
+
+    //const user = await User.findByIdAndDelete( id );
+
+    const user = await User.findByIdAndUpdate(id, { estado: false} )
+
+
+
     res.json({
-        'msg': 'del api'
+        user
     })}
+
+
 
 const userPatch = (req, res = response) => {
     res.json({
         'msg': 'patch api'
     })}
+
+
 
 
 module.exports = {
