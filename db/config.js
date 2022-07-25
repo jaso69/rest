@@ -9,7 +9,7 @@ const dbconx = async() => {
 
         await mongoose.connect(process.env.DBCONX, {
             useNewUrlParser: true,
-            useUnifiedTopology: true,       
+            useUnifiedTopology: true,
         });
 
         console.log("Conexion DB")
