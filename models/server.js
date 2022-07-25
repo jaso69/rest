@@ -4,6 +4,8 @@ const express = require('express')
 
 const cors = require('cors')
 
+const { dbconx } = require('../db/config')
+
 class Server {
 
     constructor() {
@@ -11,9 +13,16 @@ class Server {
         this.port = process.env.PORT;
         this.routesUser = '/api/users'
 
+        this.conxDB();
+
         this.middlewares();
 
         this.routes();
+    }
+
+    async conxDB(){
+
+        await dbconx();
     }
 
     middlewares() {
